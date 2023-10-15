@@ -26,3 +26,42 @@ sequenceDiagram
     deactivate server
 
 ```
+
+```mermaid
+sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>server: request HTTP-GET https://studies.cs.helsinki.fi/exampleapp/spa
+    activate server
+    server-->>browser: server responds with HTTP status code 304-HTML Document
+    deactivate server
+
+    browser->>server: new HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server-->>browser: Sending the style sheet (main.css)
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+    activate server
+    server-->>browser: the JavaScript file
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>browser: Data in json format
+    deactivate server
+
+```
+
+```mermaid
+sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>server: request POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    server-->>browser: server responds with status code 201 created
+
+    
+```
